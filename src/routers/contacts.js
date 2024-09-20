@@ -4,10 +4,11 @@ import ctrlWrapper from '../utils/ctrlWrapper.js';
 import { addContactSchema, patchContactSchema } from '../validation/contacts.js';
 import validateBody from '../utils/validateBody.js';
 import isValidId from '../middlewares/isValidId.js';
+import authenticate from '../middlewares/authenticate.js';
 
 
 const contactsRouter = Router();
-
+contactsRouter.use(authenticate);
 contactsRouter.get('/', ctrlWrapper(getContacts));
 contactsRouter.get('/:contactId',isValidId, ctrlWrapper(getContactById));
 contactsRouter.post('/',validateBody(addContactSchema), ctrlWrapper(addContact));
