@@ -18,5 +18,6 @@ export const patchContactSchema = Joi.object({
         "string.pattern.base": "Please fill a valid email address",
     }),
     isFavourite: Joi.boolean().optional(),
-    contactType: Joi.string().valid(...contactTypeList).optional()
+    contactType: Joi.string().valid(...contactTypeList).optional(),
+    photo: Joi.string().optional(),
 });
