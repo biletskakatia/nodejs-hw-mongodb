@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "build": "npm run build-docs",
+    "build-docs": "redocly bundle --ext json -o docs/swagger.json",
+    "preview-docs": "redocly preview-docs"
   },
   "keywords": [],
   "author": "Kateryna Biletska <KBiletska1@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@redocly/cli": "^1.25.5",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
     "nodemon": "^3.1.4",
@@ -32,7 +36,8 @@
     "mongoose": "^8.5.4",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.15",
-    "pino-http": "^10.2.0"
+    "pino-http": "^10.2.0",
+    "swagger-ui-express": "^5.0.1"
   },
   "type": "module"
 }

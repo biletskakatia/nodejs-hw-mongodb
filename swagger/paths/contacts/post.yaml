@@ -1,0 +1,58 @@
+tags:
+  - Contacts
+summary: Create a new contact
+operationId: addContact
+description: Create a new contact with the provided details.
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+            example: John Doe
+          email:
+            type: string
+            example: johndoe@example.com
+          phone:
+            type: string
+            example: '+1234567890'
+          photo:
+            type: string
+            example: https://example.com/photo.jpg
+responses:
+  '201':
+    description: Successfully created a contact
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - contact
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully created a contact!
+            contact:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '65ca67e7ae7f10c88b598384'
+                name:
+                  type: string
+                  example: John Doe
+                photo:
+                  type: string
+                  example: https://example.com/photo.jpg
+  '404':
+    $ref: '../../components/responses/404.yaml'
